@@ -10,10 +10,12 @@ import OndemandVideoIcon from "@material-ui/icons/OndemandVideo";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import Videos from './Videos';
 
 const SideBar = () => {
     return (
-        <div className="sidebar">
+        
+            <div className="sidebar">
             <SidebarRow selected Icon={HomeIcon} title="Home"/>
             <SidebarRow Icon={ExploreIcon} title="Explore"/>
             <SidebarRow Icon={SubscriptionsIcon} title="Subscription"/>
@@ -25,7 +27,9 @@ const SideBar = () => {
             <SidebarRow Icon={ThumbUpAltOutlinedIcon} title="Liked Videos"/>
             <SidebarRow Icon={ExpandMoreOutlinedIcon} title="Show More"/>
             <hr/>
-        </div>
+            </div>
+            
+        
     )
 }
 

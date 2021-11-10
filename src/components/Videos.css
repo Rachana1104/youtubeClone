@@ -1,6 +1,14 @@
 .videos {
-    flex: 0.85;
+    flex: 0.8;
     background-color: #f9f9f9;
     padding: 40px 20px;
     padding-bottom: 0;
+}
+
+.video_title{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    
 }
