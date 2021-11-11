@@ -1,5 +1,5 @@
 import React from 'react'
-import SidebarRow from './SidebarRow';
+import SidebarRow from '../SidebarRow/SidebarRow';
 import './SideBar.css';
 import HomeIcon from "@material-ui/icons/Home";
 import ExploreIcon from "@material-ui/icons/Explore";
@@ -10,7 +10,7 @@ import OndemandVideoIcon from "@material-ui/icons/OndemandVideo";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
-import Videos from './Videos';
+
 
 const SideBar = () => {
     return (

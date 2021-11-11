@@ -5,15 +5,30 @@ import VideoCallIcon from "@material-ui/icons/VideoCall";
 import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Avatar from "@material-ui/core/Avatar";
-import Search from "./Search";
+import Switch from "@material-ui/core/Switch";
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+import Paper from '@material-ui/core/Paper'
+
 import "./Header.css";
 import {Link} from "react-router-dom";
 
 const Header = () => {
   const [query, setQuery] = useState("");
 
+  const [dark, setDark] = useState(false)
+
+    const theme = createTheme({
+        palette: {
+            type: dark ? 'dark' : 'light',
+        },
+    })
+
   return (
     <div className="header">
+      <ThemeProvider theme={theme}>
+            
+            <Paper>
       <div className="header_left">
         <MenuIcon />
         <Link to="/">
@@ -40,11 +55,15 @@ const Header = () => {
         
       </div>
       <div className="header_right">
+      <Switch checked={dark} onChange={() => setDark(!dark)} />
         <VideoCallIcon className="videoCall" />
         <AppsIcon className="appsIcon" />
+        
         <NotificationsIcon className="notifications" />
         <Avatar className="avatar" />
       </div>
+      </Paper>
+        </ThemeProvider>
     </div>
   );
 };
