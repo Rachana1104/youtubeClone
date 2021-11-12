@@ -4,32 +4,29 @@ import Header from "./components/Layout/Header/Header";
 import SideBar from "./components/Layout/SideBar/SideBar";
 import Videos from "./components/Layout/Videos/Videos";
 import Search from "./components/Search";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Routes } from "react-router";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  
+ 
   return (
     <Router>
       <div className="App">
-        
-            <Header />
-
-            <div className="App_page">
-              <Routes>
-                {/* <Route path="/search/:searchTerm" element={<SideBar/>}>
-          </Route> */}
-                <Route path="/search/:searchTerm" element={<Search />}></Route>
-                {/* <Route path="/" element={<SideBar/>,<Videos/> }>
-          </Route> */}
-                {/* <Route path="/" element={<SideBar/> }>
-          </Route>    */}
-              </Routes>
+        <Header />
+        <Switch>
+        <Route path="/search/:searchTerm">
+            <SideBar/>
+            <Search/>
+          </Route>
+        <Route path="/">
+          <div className="App_page">
+            
               <SideBar />
               <Videos />
-              {/* <ThemeSwitch/> */}
-            </div>
+            
+          </div>
+          </Route>
           
+        </Switch>
       </div>
     </Router>
   );

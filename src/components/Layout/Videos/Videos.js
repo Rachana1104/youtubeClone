@@ -11,13 +11,13 @@ import { CardActionArea } from "@mui/material";
 
 const Videos = () => {
   const YOUTUBE_PLAYLIST_ITEMS_API =
-    "https://www.googleapis.com/youtube/v3/search";
+    "https://www.googleapis.com/youtube/v3/videos";
   const [data, setData] = useState([]);
   
   const getData = async () => {
     let apiData;
     const response = await fetch(
-      `${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=48&key=AIzaSyAoUJioByIeFEahylpEWCu5BBZ0xnk3hcM`
+      `${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&maxResults=48&key=AIzaSyAoUJioByIeFEahylpEWCu5BBZ0xnk3hcM`
     );
     apiData = await response.json();
     setData(apiData.items);
@@ -63,7 +63,7 @@ const Videos = () => {
                         </Typography>
                         <Typography variant="body2" color="text.secondary" style={{fontSize:12}}>
                             {videos.snippet.channelTitle} <br/>  
-                            150 views • 3 months ago
+                            {videos.statistics.viewCount} views • {videos.statistics.likeCount} Likes
                         </Typography>
                         </CardContent>
                     </CardActionArea>
