@@ -7,25 +7,21 @@ import Search from "./components/Search";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
- 
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
-        <Route path="/search/:searchTerm">
-            <SideBar/>
-            <Search/>
+          <Route path="/search/:searchTerm">
+            <SideBar />
+            <Search />
           </Route>
-        <Route path="/">
-          <div className="App_page">
-            
+          <Route path="/">
+            <div className="App_page">
               <SideBar />
               <Videos />
-            
-          </div>
+            </div>
           </Route>
-          
         </Switch>
       </div>
     </Router>
