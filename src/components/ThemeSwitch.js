@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Switch from '@material-ui/core/Switch'
+import SideBar from './Layout/SideBar/SideBar'
+import Header from './Layout/Header/Header'
+import Videos from './Layout/Videos/Videos'
 
 const ThemeSwitch = () => {
 
@@ -18,6 +21,8 @@ const ThemeSwitch = () => {
             <ThemeProvider theme={theme}>
             <Switch checked={dark} onChange={() => setDark(!dark)} />
             <Paper>
+                
+                <Videos/>
                 
             </Paper>
         </ThemeProvider>

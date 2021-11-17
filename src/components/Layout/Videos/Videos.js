@@ -20,7 +20,7 @@ const Videos = () => {
   const getData = async () => {
     let apiData;
     const response = await fetch(
-      `${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&maxResults=48&key=AIzaSyAoUJioByIeFEahylpEWCu5BBZ0xnk3hcM`
+      `${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&regionCode=IN&maxResults=48&key=AIzaSyAoUJioByIeFEahylpEWCu5BBZ0xnk3hcM`
     );
     apiData = await response.json();
     setData(apiData.items);

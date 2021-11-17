@@ -25,22 +25,22 @@ const VideoRow = () => {
   return (
     <div>
       <h1>VideoRow</h1>
-      {data.map((e) => {
+      {data.map((videos,index) => {
           return(
         <Card sx={{ maxWidth: 345 }}>
           <CardActionArea>
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
+              image={videos.snippet.thumbnails.medium.url}
               alt="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                
+              {videos.snippet.title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                
+              {videos.snippet.channelTitle}
               </Typography>
             </CardContent>
           </CardActionArea>

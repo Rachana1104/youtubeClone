@@ -1,34 +1,31 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import VideoCallIcon from "@material-ui/icons/VideoCall";
 import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Avatar from "@material-ui/core/Avatar";
-import Switch from "@material-ui/core/Switch";
-import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
-
 import "./Header.css";
 import {Link} from "react-router-dom";
+import VideoRow from "../../VideoRow";
+import Search from "../../Search";
+
+const fetchedData = React.createContext();
 
 const Header = () => {
   const [query, setQuery] = useState("");
-
-  const [dark, setDark] = useState(false)
-
-    const theme = createTheme({
-        palette: {
-            type: dark ? 'dark' : 'light',
-        },
-    })
+  
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (query) {
+  //     setSearch(query);
+  //   }
+  // };
+    
 
   return (
-    <div className="header">
-      <ThemeProvider theme={theme}>
-            
-            <Paper>
+    <div >
+      <div className="header">
       <div className="header_left">
         <MenuIcon />
         <Link to="/">
@@ -40,6 +37,8 @@ const Header = () => {
         </Link>
       </div>
       <div className="header_center">
+        
+        
         <input
           onChange={(e) => setQuery(e.target.value)}
           className="input"
@@ -51,21 +50,33 @@ const Header = () => {
         <Link to={`/search/${query}`}>
         <SearchIcon className="searchIcon" />
         </Link>
-
+        
         
       </div>
       <div className="header_right">
-      <Switch checked={dark} onChange={() => setDark(!dark)} />
+      
         <VideoCallIcon className="videoCall" />
         <AppsIcon className="appsIcon" />
         
         <NotificationsIcon className="notifications" />
         <Avatar className="avatar" />
       </div>
-      </Paper>
-        </ThemeProvider>
+      </div>
+      {/* <DataSearched.Provider value={setQuery}>
+  
+  </DataSearched.Provider> */}
+
+<fetchedData.Provider value={setQuery}>
+<Search/>
+      </fetchedData.Provider>
     </div>
+  
+    
+  
+
   );
 };
 
 export default Header;
+export {fetchedData};
+
