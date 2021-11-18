@@ -21,7 +21,6 @@ function App() {
         <Switch>
           
           <Route path="/">
-            
             <Header />
             <div className="App_page">
               <SideBar />

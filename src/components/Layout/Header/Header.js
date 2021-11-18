@@ -22,7 +22,7 @@ const Header = () => {
   //   }
   // };
     
-
+  console.log({query});
   return (
     <div >
       <div className="header">
@@ -62,11 +62,8 @@ const Header = () => {
         <Avatar className="avatar" />
       </div>
       </div>
-      {/* <DataSearched.Provider value={setQuery}>
-  
-  </DataSearched.Provider> */}
-
-<fetchedData.Provider value={setQuery}>
+      
+<fetchedData.Provider value={query}>
 <Search/>
       </fetchedData.Provider>
     </div>
